@@ -21,10 +21,10 @@ module GoogleOauthCalendar
 
         # this is the controller that connects oauth to user user model
         template 'sessions_controller.rb', 'app/controllers/sessions_controller.rb'
-        route("match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]")
-        route("match '/signin', to: 'sessions#new', :as => :signin, via: [:get, :post]")
-        route("match '/signout', to: 'sessions#destroy', :as => :signout, via: [:get, :post]")
-        route("match '/auth/failure', to: 'sessions#failure', via: [:get, :post]")
+        route("get '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]")
+        route("get '/signin', to: 'sessions#new', :as => :signin, via: [:get, :post]")
+        route("get '/signout', to: 'sessions#destroy', :as => :signout, via: [:get, :post]")
+        route("get '/auth/failure', to: 'sessions#failure', via: [:get, :post]")
 
         # setup the user info
         generate("model User provider:string uid:string name:string email:string token:string refresh_token:string token_expires_at:datetime")
